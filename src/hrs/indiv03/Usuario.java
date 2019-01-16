@@ -21,6 +21,14 @@ public class Usuario {
     }
 
 //CONSTRUCTOR
+
+    /**
+     *
+     * @param nombre
+     * @param apellidos
+     * @param edad
+     * @param dni
+     */
     public Usuario(String nombre, String apellidos, int edad, String dni) {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -64,6 +72,6 @@ public class Usuario {
 //TOSTRING
     @Override
     public String toString() {
-        return nombre + " " + apellidos + ", DNI: " + dni + ", Edad: " + edad;
+        return nombre + " " + apellidos + ", Edad: " + edad + ", DNI: " + dni;
     }
 }

@@ -9,6 +9,12 @@ public class Producto {
     private String referencia;
     private String nombre;
     private int unidades;
+    
+    public Producto() {
+        referencia = "";
+        nombre = "";
+        unidades = -1;
+    }
 
     /**
      * public Producto() { referencia = ""; nombre = ""; unidades = -1;
