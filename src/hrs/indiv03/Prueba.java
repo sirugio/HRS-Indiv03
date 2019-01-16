@@ -10,10 +10,9 @@ public class Prueba {
 
     public static final int MAX_PRODUCTOS = 20;
     public static final int MAX_USUARIOS = 20;
-    
 
     public static void main(String[] agrs) {
-        
+
         int opcion;
         Scanner scanner;
         String cadena;
@@ -47,37 +46,37 @@ public class Prueba {
         u = new Usuario();
 
         do {
-            System.out.println("\n1. Mostrar usuarios");
-            System.out.println("2. Mostrar productos");
-            System.out.println("3. insertar producto");
-            System.out.println("4. insertar usuario");
-            System.out.println("5. editar productos");
-            System.out.println("6. editar usuarios");
-            System.out.println("7. eliminar producto");
-            System.out.println("8. eliminar usuario");
-            System.out.println("9. Salir");
+            System.out.println("\n1. Mostrar productos.");
+            System.out.println("2. Mostrar usuarios.");
+            System.out.println("3. Insertar producto.");
+            System.out.println("4. Insertar usuario.");
+            System.out.println("5. Editar productos.");
+            System.out.println("6. Editar usuarios.");
+            System.out.println("7. Eliminar producto.");
+            System.out.println("8. Eliminar usuario.");
+            System.out.println("9. Salir.");
             System.out.print("Introduce opcion: ");
             opcion = scanner.nextInt();
             scanner.nextLine();
 
             switch (opcion) {
                 case 1:
-                    if (nUsuarios > 0) {
-                        for (int i = 0; i < nUsuarios; i++) {
-                            System.out.println(usuarios[i].toString());
-                        }
-                    } else {
-                        System.out.println("No hay usuarios");
-                    }
-                    break;
-
-                case 2:
                     if (nProductos > 0) {
                         for (int i = 0; i < nProductos; i++) {
                             System.out.println(productos[i].toString());
                         }
                     } else {
                         System.out.println("No hay productos");
+                    }
+                    break;
+
+                case 2:
+                    if (nUsuarios > 0) {
+                        for (int i = 0; i < nUsuarios; i++) {
+                            System.out.println(usuarios[i].toString());
+                        }
+                    } else {
+                        System.out.println("No hay usuarios");
                     }
                     break;
 
@@ -90,6 +89,7 @@ public class Prueba {
                         System.out.print("Introduce Uniudades: ");
                         productos[nProductos].setUnidades(scanner.nextInt());
                         nProductos++;
+                        System.out.println("Producto insertado con éxito.");
                     } else {
                         System.out.println("Ya no entran mas productos");
                     }
@@ -106,6 +106,7 @@ public class Prueba {
                         System.out.print("Introduce Edad: ");
                         usuarios[nUsuarios].setEdad(scanner.nextInt());
                         nUsuarios++;
+                        System.out.println("Usuario insertado con éxito.");
                     } else {
                         System.out.println("Ya no entran mas usuarios");
                     }
@@ -128,6 +129,8 @@ public class Prueba {
                         productos[i].setNombre(scanner.nextLine());
                         System.out.print("Nuevas Unidades: ");
                         productos[i].setUnidades(scanner.nextInt());
+                        System.out.println("Producto modificado con éxito.");
+
                     }
                     break;
 
@@ -152,8 +155,8 @@ public class Prueba {
                         usuarios[nUsuarios].setDni(scanner.nextLine());
                         System.out.print("Nueva Edad: ");
                         usuarios[nUsuarios].setEdad(scanner.nextInt());
-                        
-                        
+                        System.out.println("Usuario modificado con éxito.");
+
                     }
                     break;
 
@@ -175,6 +178,7 @@ public class Prueba {
                         }
 
                         nProductos--;
+                        System.out.println("Producto eliminado con éxito.");
                     }
                     break;
 
@@ -196,6 +200,7 @@ public class Prueba {
                         }
 
                         nUsuarios--;
+                        System.out.println("Usuario elimninado con éxito.");
                     }
                     break;
 
@@ -207,42 +212,6 @@ public class Prueba {
             }
         } while (opcion != 9);
 
-        /*Scanner in = new Scanner(System.in);
-
-        int leidos = 0, totalALeer = 5;
-        int numero;
-        
-        while (leidos < totalALeer) {
-            System.out.println("Introduciendo número " + (leidos + 1) + "º: ");
-            numero = sc.nextInt();
-            intentosLectura++;
-            if (numero >= 0) {
-                leidos++;
-                sumaTotal += numero;
-            } else {
-                System.out.println("El número " + numero + " es negativo, y se descarta.");
-            }
-        }*/
-        /**
-         *
-         * Usuario nuevo = new Usuario(); System.out.print("Introduzca un
-         * nombre: "); Usuario.nombre = in.next(setNombre);
-         * nuevo.setNombre("Sergio"); nuevo.setApellidos("Ruiz Herrera");
-         * nuevo.setEdad(33); nuevo.setDni("75164270V");
-         *
-         * System.out.println(nuevo.toString());
-         *
-         * /**
-         *
-         *
-         * System.out.print("Introduce tu nombre: "); Usuario.nombre =
-         * in.next(); System.out.print("Introduce tus apellidos: ");
-         * Usuario.apellidos = in.next(); System.out.print("Introduce tu edad:
-         * "); Usuario.edad = in.nextInt(); System.out.print("Introduce tu DNI:
-         * "); Usuario.dni = in.next();
-         *
-         * System.out.println(toString());
-         */
     }
 
 }
