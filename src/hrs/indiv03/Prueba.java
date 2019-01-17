@@ -1,5 +1,6 @@
 package hrs.indiv03;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -19,6 +20,7 @@ public class Prueba {
         int entero;
         int nProductos;
         int nUsuarios;
+        boolean numero = false;
 
         Producto p;
         Usuario u;
@@ -56,7 +58,12 @@ public class Prueba {
             System.out.println("8. Eliminar usuario.");
             System.out.println("9. Salir.");
             System.out.print("Introduce opcion: ");
-            opcion = scanner.nextInt();
+
+            try {
+                opcion = scanner.nextInt();
+            } catch (InputMismatchException ime) {
+                opcion = -1;
+            }
             scanner.nextLine();
 
             switch (opcion) {
@@ -87,7 +94,15 @@ public class Prueba {
                         System.out.print("Introduce Nombre: ");
                         productos[nProductos].setNombre(scanner.nextLine());
                         System.out.print("Introduce Uniudades: ");
-                        productos[nProductos].setUnidades(scanner.nextInt());
+                        do {
+                        try {
+                            productos[nProductos].setUnidades(scanner.nextInt());
+                        } catch (InputMismatchException ime) {
+                            numero = false;
+                            System.out.println("El número no es válido.");
+                        } 
+                        } while (numero != false);
+                        
                         nProductos++;
                         System.out.println("Producto insertado con éxito.");
                     } else {
@@ -103,8 +118,13 @@ public class Prueba {
                         usuarios[nUsuarios].setApellidos(scanner.nextLine());
                         System.out.print("Introduce DNI: ");
                         usuarios[nUsuarios].setDni(scanner.nextLine());
+                        
                         System.out.print("Introduce Edad: ");
-                        usuarios[nUsuarios].setEdad(scanner.nextInt());
+                        try {
+                            usuarios[nUsuarios].setEdad(scanner.nextInt());
+                        } catch (InputMismatchException ime) {
+                            System.out.println("El número no es válido.");
+                        }
                         nUsuarios++;
                         System.out.println("Usuario insertado con éxito.");
                     } else {
@@ -128,9 +148,12 @@ public class Prueba {
                         System.out.print("Nuevo Nombre: ");
                         productos[i].setNombre(scanner.nextLine());
                         System.out.print("Nuevas Unidades: ");
-                        productos[i].setUnidades(scanner.nextInt());
+                        try {
+                            productos[i].setUnidades(scanner.nextInt());
+                        } catch (InputMismatchException ime) {
+                            System.out.println("El número no es válido.");
+                        }
                         System.out.println("Producto modificado con éxito.");
-
                     }
                     break;
 
@@ -154,9 +177,12 @@ public class Prueba {
                         System.out.print("Nuevo DNI: ");
                         usuarios[nUsuarios].setDni(scanner.nextLine());
                         System.out.print("Nueva Edad: ");
+                        try {
                         usuarios[nUsuarios].setEdad(scanner.nextInt());
+                        } catch (InputMismatchException ime) {
+                            System.out.println("El número no es válido.");
+                        }
                         System.out.println("Usuario modificado con éxito.");
-
                     }
                     break;
 
